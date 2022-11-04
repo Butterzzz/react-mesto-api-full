@@ -1,0 +1,14 @@
+.profile__button {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: #FFF;
+  margin: 0;
+  padding: 0;
+  transition: opacity .3s ease;
+}
+
+.profile__button:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}

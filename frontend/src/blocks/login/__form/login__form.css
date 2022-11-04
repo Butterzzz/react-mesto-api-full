@@ -1,0 +1,28 @@
+.login__form {
+    font-family: 'Inter', Arial, sans-serif;
+}
+
+.login__form input {
+    font-family: inherit;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    color: #FFFFFF;
+    background-color: transparent;
+    border: 0;
+    border-bottom: 2px solid #CCC;
+    padding: 0 0 12px 1px;
+    margin-bottom: 30px;
+}
+
+.login__form input[type="password"] {
+    margin-bottom: 0;
+}
+
+.login__form input:focus {
+    outline: 0;
+}
+
+.login__form input::placeholder {
+    color: #CCC;
+}

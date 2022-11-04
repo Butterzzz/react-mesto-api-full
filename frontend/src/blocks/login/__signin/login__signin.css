@@ -1,0 +1,9 @@
+.login__signin {
+    color: #FFF;
+    text-decoration: none;
+}
+
+.login__signin:hover {
+    cursor: pointer;
+    opacity: 0.6;
+}

@@ -1,0 +1,17 @@
+.profile__button_action_edit {
+  grid-area: button;
+  width: 24px;
+  height: 24px;
+  background: url(../../../../images/button-edit.svg) no-repeat center;
+  background-size: 10px;
+  border: 1px solid #FFF;
+  box-sizing: border-box;
+}
+
+@media screen and (max-width: 425px){
+  .profile__button_action_edit {
+    width: 18px;
+    height: 18px;
+    background-size: 7.5px;
+  }
+}

@@ -1,0 +1,13 @@
+.profile__button_action_edit-avatar {
+  width: 120px;
+  height: 120px;
+  background: url(../../../../images/button-edit.svg) no-repeat center;
+  background-size: 26px;
+  background-color: rgba(0, 0, 0, 0.8);
+  position: absolute;
+  opacity: 0;
+}
+
+.profile__button_action_edit-avatar:hover {
+  opacity: 1;
+}

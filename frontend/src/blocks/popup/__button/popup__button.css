@@ -1,0 +1,21 @@
+.popup__button {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  box-shadow: none;
+  outline: none;
+  display: block;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: 400;
+  color: #FFF;
+  text-align: center;
+  transition: opacity .3s;
+}
+
+.popup__button:hover {
+  opacity: .6;
+}
