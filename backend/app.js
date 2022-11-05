@@ -6,10 +6,12 @@ const rateLimit = require('express-rate-limit');
 const { celebrate, Joi, errors } = require('celebrate');
 const { errorsHandler } = require('./middlewares/errorsHandler');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
+const cors = require('./middlewares/cors');
 
 const { PORT = 3000 } = process.env;
 const app = express();
 
+app.use(cors);
 const usersRouter = require('./routes/users');
 const cardsRouter = require('./routes/cards');
 const { login, createUser } = require('./controllers/users');
