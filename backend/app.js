@@ -31,6 +31,12 @@ app.use(helmet());
 app.use(limiter);
 app.disable('x-powered-by');
 
+app.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
+});
+
 // роуты, не требующие авторизации
 app.post('/signup', celebrate({
   body: Joi.object().keys({
