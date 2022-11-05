@@ -14,11 +14,11 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build && scp -r ./build/* butters-cloud@84.201.158.49:/home/butters-cloud/react-mesto-api-full/frontend/build",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "scp -r ./build/* butters-cloud@84.201.158.49:/home/butters-cloud/react-mesto-api-full/frontend"
   },
   "eslintConfig": {
     "extends": [
