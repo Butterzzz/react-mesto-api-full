@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const helmet = require('helmet');
@@ -63,6 +64,7 @@ app.use('/*', () => {
 app.use(errorLogger); // логгер ошибок
 app.use(errors()); // обработчик ошибок celebrate
 app.use(errorsHandler); // централизованная обработка ошибок
+
 app.listen(PORT, () => {
   // eslint-disable-next-line no-console
   console.log(`App listening on port ${PORT}`);
