@@ -120,7 +120,7 @@ function App() {
     setIsLoading(true);
     auth.register(password, email)
       .then(data => {
-        if (data.data._id) {
+        if (data._id) {
           setIsSuccess(true);
           setIsInfooTooltipOpen(true);
           history.push('/sign-in');
@@ -148,6 +148,8 @@ function App() {
         }
       })
       .catch((err) => {
+        setIsSuccess(false);
+        setIsInfooTooltipOpen(true);
         console.log(err)
       })
       .finally(() => {
