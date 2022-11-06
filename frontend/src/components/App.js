@@ -34,7 +34,7 @@ function App() {
     if (loggedIn) {
       Promise.all([api.getUserInfo(), api.getInitialCards()]).then(([userData, cardsData]) => {
         setCurrentUser(userData);
-        setCards(cardsData);
+        setCards(cardsData.reverse());
       }).catch((err) => { console.log(err) });
     }
   }, [loggedIn])
@@ -84,7 +84,7 @@ function App() {
   }
 
   function handleCardLike(card) {
-    const isLiked = card.likes.some(i => i._id === currentUser._id);
+    const isLiked = card.likes.some(i => i === currentUser._id);
 
     if (!isLiked) {
       api.addLike(card._id).then((newCard) => {
@@ -141,7 +141,7 @@ function App() {
     auth.authorize(password, email)
       .then(data => {
         if (data.token) {
-          localStorage.setItem('token', data.token);
+          localStorage.setItem('jwt', data.token);
           setLoggedIn(true);
           setEmail(email);
           history.push('/');
@@ -156,14 +156,14 @@ function App() {
   };
 
   useEffect(() => {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem('jwt');
 
     if (token) {
       auth.getContent(token)
         .then(res => {
           if (res) {
             setLoggedIn(true);
-            setEmail(res.data.email);
+            setEmail(res.email);
             history.push('/');
           }
         })
@@ -172,7 +172,7 @@ function App() {
   }, [history])
 
   function signOut() {
-    localStorage.removeItem('token');
+    localStorage.removeItem('jwt');
     setLoggedIn(false);
     history.push('/sign-in');
   };
