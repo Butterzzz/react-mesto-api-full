@@ -32,4 +32,4 @@ router.use('/*', () => {
   throw new NotFoundError('Запрашиваемый ресурс не найден');
 });
 
-module.export = router;
+module.exports = router;
