@@ -3,20 +3,16 @@ const express = require('express');
 const mongoose = require('mongoose');
 const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
-const { celebrate, Joi, errors } = require('celebrate');
+const { errors } = require('celebrate');
 const { errorsHandler } = require('./middlewares/errorsHandler');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const cors = require('./middlewares/cors');
+const router = require('./routes/index');
 
 const { PORT = 3000 } = process.env;
 const app = express();
 
 app.use(cors);
-const usersRouter = require('./routes/users');
-const cardsRouter = require('./routes/cards');
-const { login, createUser } = require('./controllers/users');
-const auth = require('./middlewares/auth');
-const NotFoundError = require('./errors/not-found-err');
 
 mongoose.connect('mongodb://localhost:27017/mestodb');
 
@@ -40,29 +36,8 @@ app.get('/crash-test', () => {
   }, 0);
 });
 
-// роуты, не требующие авторизации
-app.post('/signup', celebrate({
-  body: Joi.object().keys({
-    email: Joi.string().required().email(),
-    password: Joi.string().required().min(8),
-    name: Joi.string().min(2).max(30),
-    avatar: Joi.string().pattern(/^(http|https):\/\/(www\.)?[\w-._~:/?#[\]@!$&'()*+,;=%]+#?$/i),
-    about: Joi.string().min(2).max(30),
-  }),
-}), createUser);
-app.post('/signin', celebrate({
-  body: Joi.object().keys({
-    email: Joi.string().required().email(),
-    password: Joi.string().required().min(8),
-  }),
-}), login);
+app.use(router);
 
-app.use(auth);
-app.use('/users', usersRouter);
-app.use('/cards', cardsRouter);
-app.use('/*', () => {
-  throw new NotFoundError('Запрашиваемый ресурс не найден');
-});
 app.use(errorLogger); // логгер ошибок
 app.use(errors()); // обработчик ошибок celebrate
 app.use(errorsHandler); // централизованная обработка ошибок
