@@ -14,7 +14,7 @@ const app = express();
 
 app.use(cors);
 
-mongoose.connect('mongodb://localhost:27017/mestodb');
+mongoose.connect('mongodb://127.0.0.1:27017/mestodb');
 
 // защита от автоматических запросов через лимиты (для защиты от DoS-атак)
 const limiter = rateLimit({
