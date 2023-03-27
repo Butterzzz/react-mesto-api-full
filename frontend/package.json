@@ -18,7 +18,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "scp -r ./build/* butters-cloud@84.201.158.49:/home/butters-cloud/react-mesto-api-full/frontend"
+    "deploy": "scp -r ./build/* root@45.9.73.240:/var/www/mesto/html"
   },
   "eslintConfig": {
     "extends": [
