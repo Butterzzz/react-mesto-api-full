@@ -32,3 +32,14 @@
 - Валидация Joi и celebrate; 
 - Централизованная обработка ошибок;
 - Логирование запросов и ошибок.
+
+## Ссылки:
+
+- IP 45.9.73.240
+- Frontend https://mesto.gss.nomoredomains.icu
+- Backend https://api.mesto.gss.nomoredomains.icu
+
+Вы можете зарегистрировать нового пользователя или воспользоваться тестовыми данными:
+
+- логин: test@test.ru
+- пароль: test_password
